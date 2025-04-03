@@ -20,7 +20,7 @@ class HeatMap extends StatelessWidget {
                       Container(
                         color: const Color.fromARGB(255, 255, 251, 251),
                         height: MediaQuery.of(context).size.height,
-                        width: 350,
+                        width: 300,
                         child: Column(
                           children: [
                             const SizedBox(height: 20),
@@ -122,7 +122,7 @@ class HeatMap extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 205),
+                            const SizedBox(height: 135),
                             SizedBox(
                               height: 35,
                               width: 150,
@@ -164,7 +164,7 @@ class HeatMap extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(
                                     left: 30,
-                                    bottom: 20,
+                                    bottom: 45,
                                   ),
                                   child: TextButton(
                                     onPressed: () {
@@ -189,7 +189,7 @@ class HeatMap extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(
                                     left: 30,
-                                    bottom: 20,
+                                    bottom: 45,
                                   ),
                                   child: Text(
                                     '>',
@@ -204,7 +204,7 @@ class HeatMap extends StatelessWidget {
                                 Padding(
                                   padding: EdgeInsets.only(
                                     left: 30,
-                                    bottom: 20,
+                                    bottom: 45,
                                   ),
                                   child: Text(
                                     'Heat Map',
@@ -217,7 +217,7 @@ class HeatMap extends StatelessWidget {
                                 ),
                                 const SizedBox(width: 15),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 215, top: 40),
+                                  padding: EdgeInsets.only(left: 165, top: 15),
                                   child: SizedBox(
                                     height: 100,
                                     width: 300,
@@ -245,7 +245,7 @@ class HeatMap extends StatelessWidget {
                                     Padding(
                                       padding: EdgeInsets.only(left: 45),
                                       child: Container(
-                                        height: 500,
+                                        height: 400,
                                         width: 600,
                                         color: Colors.white,
                                         child: GestureDetector(
@@ -262,8 +262,8 @@ class HeatMap extends StatelessWidget {
                                             children: [
                                               Image.asset(
                                                 'assets/map/spc.png',
-                                                height: 500,
-                                                width: 500,
+                                                height: 400,
+                                                width: 400,
                                               ),
                                             ],
                                           ),
@@ -276,8 +276,8 @@ class HeatMap extends StatelessWidget {
                                   padding: EdgeInsets.only(left: 15),
                                   child: Container(
                                     color: Colors.white,
-                                    width: 300,
-                                    height: 500,
+                                    width: 250,
+                                    height: 400,
                                     child: Column(
                                       children: [
                                         Padding(

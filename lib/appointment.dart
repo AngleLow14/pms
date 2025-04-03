@@ -19,7 +19,7 @@ class Appointment extends StatelessWidget {
                       Container(
                         color: const Color.fromARGB(255, 255, 251, 251),
                         height: MediaQuery.of(context).size.height,
-                        width: 350,
+                        width: 300,
                         child: Column(
                           children: [
                             const SizedBox(height: 20),
@@ -161,7 +161,7 @@ class Appointment extends StatelessWidget {
                             Row(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(left: 40, top: 40),
+                                  padding: EdgeInsets.only(left: 40, top: 10),
                                   child: SizedBox(
                                     height: 100,
                                     width: 300,
@@ -176,7 +176,7 @@ class Appointment extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 300, top: 40),
+                                  padding: EdgeInsets.only(left: 300, top: 10),
                                   child: SizedBox(
                                     height: 100,
                                     width: 300,
@@ -198,9 +198,9 @@ class Appointment extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsets.only(),
+                              padding: EdgeInsets.only(right: 25),
                               child: SizedBox(
-                                width: 910,
+                                width: 890,
                                 height: 500,
                                 child: Table(
                                   border: TableBorder.all(color: Colors.black),

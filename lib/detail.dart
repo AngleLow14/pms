@@ -45,9 +45,9 @@ class ViewDetails extends StatelessWidget {
                 child: Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.only(left: 50),
-                      height: 530,
-                      width: 600,
+                      padding: EdgeInsets.only(left: 30),
+                      height: 480,
+                      width: 550,
                       color: Colors.white,
                       child: Column(
                         children: [
@@ -67,7 +67,7 @@ class ViewDetails extends StatelessWidget {
                                   backgroundColor: Colors.transparent,
                                 ),
                               ),
-                              const SizedBox(width: 20),
+                              const SizedBox(width: 10),
                               Column(
                                 children: [
                                   Text(
@@ -80,7 +80,7 @@ class ViewDetails extends StatelessWidget {
                                   ),
                                   const SizedBox(height: 5),
                                   Padding(
-                                    padding: EdgeInsets.only(right: 250),
+                                    padding: EdgeInsets.only(right: 270),
                                     child: Text(
                                       '21 years old',
                                       style: TextStyle(
@@ -94,7 +94,7 @@ class ViewDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 30),
+                          const SizedBox(height: 20),
                           Row(
                             children: [
                               Padding(
@@ -110,7 +110,7 @@ class ViewDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
                               Text(
@@ -172,7 +172,7 @@ class ViewDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
                               Text(
@@ -216,7 +216,7 @@ class ViewDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
                               Text(
@@ -278,7 +278,7 @@ class ViewDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 10),
                           Row(
                             children: [
                               Text(
@@ -345,8 +345,8 @@ class ViewDetails extends StatelessWidget {
                     ),
                     const SizedBox(width: 30),
                     Container(
-                      height: 530,
-                      width: 600,
+                      height: 480,
+                      width: 500,
                       color: Colors.white,
                       padding: EdgeInsets.only(left: 20),
                       child: Column(
@@ -362,8 +362,8 @@ class ViewDetails extends StatelessWidget {
                           ),
                           const SizedBox(height: 30),
                           Container(
-                            width: 450,
-                            height: 115,
+                            width: 430,
+                            height: 110,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black, width: 1),
@@ -371,13 +371,13 @@ class ViewDetails extends StatelessWidget {
                             ),
                             child: Column(
                               children: [
-                                const SizedBox(height: 5),
+                                const SizedBox(height: 10),
                                 Padding(
                                   padding: EdgeInsets.only(right: 225),
                                   child: Text(
                                     'March 11, 2025',
                                     style: TextStyle(
-                                      fontSize: 26,
+                                      fontSize: 20,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -388,13 +388,13 @@ class ViewDetails extends StatelessWidget {
                                   child: Text(
                                     'Follow up check up',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 20,
                                       color: Colors.black,
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(right: 295),
+                                  padding: EdgeInsets.only(right: 285),
                                   child: TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -417,7 +417,7 @@ class ViewDetails extends StatelessWidget {
                                       'View Record',
                                       style: TextStyle(
                                         fontFamily: 'OpenSansLight',
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 235, 49, 49),
                                       ),
@@ -429,8 +429,8 @@ class ViewDetails extends StatelessWidget {
                           ),
                           const SizedBox(height: 30),
                           Container(
-                            width: 450,
-                            height: 115,
+                            width: 430,
+                            height: 110,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black, width: 1),
@@ -438,30 +438,30 @@ class ViewDetails extends StatelessWidget {
                             ),
                             child: Column(
                               children: [
-                                const SizedBox(height: 5),
+                                const SizedBox(height: 10),
                                 Padding(
                                   padding: EdgeInsets.only(right: 225),
                                   child: Text(
                                     'March 11, 2025',
                                     style: TextStyle(
-                                      fontSize: 26,
+                                      fontSize: 20,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(right: 110),
+                                  padding: EdgeInsets.only(right: 125),
                                   child: Text(
                                     'Diagnosed with Gonorrhea',
                                     style: TextStyle(
-                                      fontSize: 25,
+                                      fontSize: 20,
                                       color: Colors.black,
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(right: 295),
+                                  padding: EdgeInsets.only(right: 280),
                                   child: TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -484,7 +484,7 @@ class ViewDetails extends StatelessWidget {
                                       'View Record',
                                       style: TextStyle(
                                         fontFamily: 'OpenSansLight',
-                                        fontSize: 20,
+                                        fontSize: 15,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 235, 49, 49),
                                       ),
@@ -500,8 +500,9 @@ class ViewDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 15),
-              Center(
+              const SizedBox(height: 10),
+              Padding(
+                padding: EdgeInsets.only(right: 85),
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(

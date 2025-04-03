@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
                       Container(
                         color: const Color.fromARGB(255, 255, 152, 145),
                         height: MediaQuery.of(context).size.height,
-                        width: 530,
+                        width: 500,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,

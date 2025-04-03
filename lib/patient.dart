@@ -20,7 +20,7 @@ class Patients extends StatelessWidget {
                       Container(
                         color: const Color.fromARGB(255, 255, 251, 251),
                         height: MediaQuery.of(context).size.height,
-                        width: 350,
+                        width: 300,
                         child: Column(
                           children: [
                             const SizedBox(height: 20),
@@ -85,12 +85,7 @@ class Patients extends StatelessWidget {
                                     fontSize: 15,
                                     fontFamily: 'OpenSansLight',
                                     fontWeight: FontWeight.bold,
-                                    color: const Color.fromARGB(
-                                      255,
-                                      252,
-                                      98,
-                                      98,
-                                    ),
+                                    color: Color.fromARGB(255, 252, 98, 98),
                                   ),
                                 ),
                               ),
@@ -161,7 +156,7 @@ class Patients extends StatelessWidget {
                             Row(
                               children: [
                                 Padding(
-                                  padding: EdgeInsets.only(left: 40, top: 40),
+                                  padding: EdgeInsets.only(left: 40, top: 10),
                                   child: SizedBox(
                                     height: 100,
                                     width: 300,
@@ -176,7 +171,7 @@ class Patients extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 300, top: 40),
+                                  padding: EdgeInsets.only(left: 300, top: 10),
                                   child: SizedBox(
                                     height: 100,
                                     width: 300,
@@ -198,7 +193,7 @@ class Patients extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding: EdgeInsets.only(),
+                              padding: EdgeInsets.only(right: 50),
                               child: SizedBox(
                                 width: 800,
                                 height: 400,

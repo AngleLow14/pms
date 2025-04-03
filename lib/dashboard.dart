@@ -21,7 +21,7 @@ class Dashboard extends StatelessWidget {
                       Container(
                         color: const Color.fromARGB(255, 255, 251, 251),
                         height: MediaQuery.of(context).size.height,
-                        width: 350,
+                        width: 300,
                         child: Column(
                           children: [
                             const SizedBox(height: 20),
@@ -149,9 +149,9 @@ class Dashboard extends StatelessWidget {
                         Row(
                           children: [
                             Padding(
-                              padding: EdgeInsets.only(left: 45, top: 40),
+                              padding: EdgeInsets.only(left: 45, top: 10),
                               child: SizedBox(
-                                height: 80,
+                                height: 50,
                                 width: 300,
                                 child: Text(
                                   'Dashboard',
@@ -164,9 +164,9 @@ class Dashboard extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 259, top: 40),
+                              padding: EdgeInsets.only(left: 295, top: 10),
                               child: SizedBox(
-                                height: 80,
+                                height: 50,
                                 width: 300,
                                 child: TextField(
                                   style: TextStyle(fontSize: 15),
@@ -183,6 +183,7 @@ class Dashboard extends StatelessWidget {
                             ),
                           ],
                         ),
+                        const SizedBox(height: 15),
                         Container(
                           color: const Color.fromARGB(255, 255, 245, 245),
                           child: SingleChildScrollView(
