@@ -121,7 +121,7 @@ class Appointment extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 197),
+                            const SizedBox(height: 127),
                             SizedBox(
                               height: 35,
                               width: 150,
@@ -176,7 +176,7 @@ class Appointment extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 350, top: 40),
+                                  padding: EdgeInsets.only(left: 300, top: 40),
                                   child: SizedBox(
                                     height: 100,
                                     width: 300,

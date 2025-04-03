@@ -3,7 +3,6 @@ import 'package:pms/appointment.dart';
 import 'package:pms/detail.dart';
 import 'package:pms/main.dart';
 import 'package:pms/dashboard.dart';
-import 'package:pms/detail.dart';
 
 class Patients extends StatelessWidget {
   const Patients({super.key});
@@ -122,7 +121,7 @@ class Patients extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 200),
+                            const SizedBox(height: 130),
                             SizedBox(
                               height: 35,
                               width: 130,
@@ -177,7 +176,7 @@ class Patients extends StatelessWidget {
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(left: 350, top: 40),
+                                  padding: EdgeInsets.only(left: 300, top: 40),
                                   child: SizedBox(
                                     height: 100,
                                     width: 300,
@@ -201,14 +200,14 @@ class Patients extends StatelessWidget {
                             Padding(
                               padding: EdgeInsets.only(),
                               child: SizedBox(
-                                width: 910,
-                                height: 500,
+                                width: 800,
+                                height: 400,
                                 child: Table(
                                   border: TableBorder.all(color: Colors.black),
                                   columnWidths: {
-                                    0: FixedColumnWidth(100.0),
+                                    0: FixedColumnWidth(80.0),
                                     1: FixedColumnWidth(200.0),
-                                    2: FixedColumnWidth(50.0),
+                                    2: FixedColumnWidth(30.0),
                                     3: FixedColumnWidth(75.0),
                                     4: FixedColumnWidth(120.0),
                                     5: FixedColumnWidth(100.0),

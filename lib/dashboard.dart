@@ -113,7 +113,7 @@ class Dashboard extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            const SizedBox(height: 205),
+                            const SizedBox(height: 135),
                             SizedBox(
                               height: 35,
                               width: 150,
@@ -164,7 +164,7 @@ class Dashboard extends StatelessWidget {
                               ),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: 345, top: 40),
+                              padding: EdgeInsets.only(left: 259, top: 40),
                               child: SizedBox(
                                 height: 80,
                                 width: 300,
