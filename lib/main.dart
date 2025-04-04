@@ -1,27 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:pms/dashboard.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: true,
-      title: 'PMS Social Hygiene Clinic',
-      theme: ThemeData(primarySwatch: Colors.red),
-      home: const LoginPage(),
-    );
-  }
+  runApp(
+    ScreenUtilInit(
+      designSize: Size(1280, 800),
+      builder:
+          (_, child) => MaterialApp(
+            debugShowCheckedModeBanner: true,
+            title: 'PMS Social Hygiene Clinic',
+            theme: ThemeData(primarySwatch: Colors.red),
+            home: const LoginPage(),
+          ),
+    ),
+  );
 }
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
+
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
         child: Column(
@@ -34,7 +37,7 @@ class LoginPage extends StatelessWidget {
                       Container(
                         color: const Color.fromARGB(255, 255, 152, 145),
                         height: MediaQuery.of(context).size.height,
-                        width: 500,
+                        width: screenWidth * 0.3,
                       ),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -42,32 +45,32 @@ class LoginPage extends StatelessWidget {
                           Container(
                             color: Colors.white,
                             height: MediaQuery.of(context).size.height,
-                            width: 830,
+                            width: screenWidth * 0.7,
                             child: Column(
                               children: [
-                                const SizedBox(height: 40),
-                                const Text(
+                                SizedBox(height: screenHeight * 0.04),
+                                Text(
                                   'San Pablo Social Hygiene Clinic',
                                   style: TextStyle(
                                     fontFamily: 'OpenSansEB',
                                     color: Color.fromARGB(255, 182, 8, 37),
-                                    fontSize: 43,
+                                    fontSize: 43.sp,
                                     fontWeight: FontWeight.bold,
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
-                                const SizedBox(height: 135),
-                                const Text(
+                                SizedBox(height: screenHeight * 0.2),
+                                Text(
                                   'Login',
                                   style: TextStyle(
                                     fontFamily: 'OpenSansEB',
-                                    fontSize: 30,
+                                    fontSize: 30.sp,
                                     fontWeight: FontWeight.w500,
                                     color: Color.fromARGB(255, 182, 8, 37),
                                   ),
                                   textAlign: TextAlign.center,
                                 ),
-                                const SizedBox(height: 50),
+                                SizedBox(height: screenHeight * 0.05),
                                 Padding(
                                   padding: EdgeInsets.only(right: 200),
                                   child: const Text(

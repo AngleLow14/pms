@@ -1,62 +1,65 @@
 import 'package:pms/patient.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ViewDetails extends StatelessWidget {
   const ViewDetails({super.key});
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
         child: Container(
           color: const Color.fromARGB(255, 255, 242, 242),
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
+          height: screenHeight * 1,
+          width: screenWidth * 2,
           child: Column(
             children: [
               Row(
                 children: [
                   Container(
                     padding: EdgeInsets.only(left: 20),
-                    height: 60,
-                    width: 60,
+                    height: 60.h,
+                    width: 60.w,
                     child: Image.asset(
                       'assets/icon/shc.png',
-                      height: 60,
-                      width: 60,
+                      height: 60.h,
+                      width: 60.w,
                     ),
                   ),
-                  const SizedBox(width: 15),
+                  SizedBox(width: screenWidth * 0.03),
                   Padding(
                     padding: EdgeInsets.only(),
                     child: Text(
                       'San Pablo Social Hygiene Clinic',
                       style: TextStyle(
                         fontFamily: 'OpenSansEB',
-                        fontSize: 20,
+                        fontSize: 20.sp,
                         color: Color.fromARGB(255, 182, 8, 37),
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: screenHeight * 0.05),
               Padding(
                 padding: EdgeInsets.only(left: 70),
                 child: Row(
                   children: [
                     Container(
                       padding: EdgeInsets.only(left: 30),
-                      height: 480,
-                      width: 550,
+                      height: 600.h,
+                      width: 600.w,
                       color: Colors.white,
                       child: Column(
                         children: [
-                          const SizedBox(height: 30),
+                          SizedBox(height: screenHeight * 0.03),
                           Row(
                             children: [
                               Container(
-                                height: 100,
-                                width: 100,
+                                height: 100.h,
+                                width: 100.w,
                                 padding: EdgeInsets.all(8.0),
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
@@ -67,25 +70,25 @@ class ViewDetails extends StatelessWidget {
                                   backgroundColor: Colors.transparent,
                                 ),
                               ),
-                              const SizedBox(width: 10),
+                              SizedBox(width: screenWidth * 0.02),
                               Column(
                                 children: [
                                   Text(
                                     'Gene Jerrylene Arnigo Alvarez',
                                     style: TextStyle(
                                       fontFamily: 'OpenSansEB',
-                                      fontSize: 25,
+                                      fontSize: 25.sp,
                                       color: Colors.black,
                                     ),
                                   ),
-                                  const SizedBox(height: 5),
+                                  SizedBox(height: screenHeight * 0.02),
                                   Padding(
                                     padding: EdgeInsets.only(right: 270),
                                     child: Text(
                                       '21 years old',
                                       style: TextStyle(
                                         fontFamily: 'OpenSansSB',
-                                        fontSize: 20,
+                                        fontSize: 20.sp,
                                         color: Colors.black,
                                       ),
                                     ),
@@ -94,7 +97,7 @@ class ViewDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 20),
+                          SizedBox(height: screenHeight * 0.03),
                           Row(
                             children: [
                               Padding(
@@ -110,231 +113,231 @@ class ViewDetails extends StatelessWidget {
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 'Birthday',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 100),
+                              SizedBox(width: screenWidth * 0.1),
                               Text(
                                 'Place of Birth',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 40),
+                              SizedBox(width: screenWidth * 0.07),
                               Text(
                                 'Civil Status',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 'February 28, 2004',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 50),
+                              SizedBox(width: screenWidth * 0.06),
                               Text(
                                 'Tiaong, Quezon',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 50),
+                              SizedBox(width: screenWidth * 0.08),
                               Text(
                                 'Married',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 'Contact Number',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 50),
+                              SizedBox(width: screenWidth * 0.05),
                               Text(
                                 'Email',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 '09123456789',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 95),
+                              SizedBox(width: screenWidth * 0.08),
                               Text(
                                 'genealvarezjerrylene@gmail.com',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 'House Number',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 50),
+                              SizedBox(width: screenWidth * 0.05),
                               Text(
                                 'Street',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 90),
+                              SizedBox(width: screenWidth * 0.07),
                               Text(
                                 'Barangay',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 '123',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 160),
+                              SizedBox(width: screenWidth * 0.135),
                               Text(
                                 'Rizal St.',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 85),
+                              SizedBox(width: screenWidth * 0.08),
                               Text(
                                 'Seoul',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 'Municipality/City',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 40),
+                              SizedBox(width: screenWidth * 0.04),
                               Text(
                                 'Province',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 50),
+                              SizedBox(width: screenWidth * 0.05),
                               Text(
                                 'Zip Code',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansSB',
-                                  fontSize: 20,
+                                  fontSize: 20.sp,
                                   color: Colors.black,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 10),
+                          SizedBox(height: screenHeight * 0.02),
                           Row(
                             children: [
                               Text(
                                 'San Pablo',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 120),
+                              SizedBox(width: screenWidth * 0.1),
                               Text(
                                 'Laguna',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
-                              const SizedBox(width: 75),
+                              SizedBox(width: screenWidth * 0.08),
                               Text(
                                 '4000',
                                 style: TextStyle(
                                   fontFamily: 'OpenSansLight',
-                                  fontSize: 15,
+                                  fontSize: 15.sp,
                                   color: Colors.black,
                                 ),
                               ),
@@ -345,25 +348,25 @@ class ViewDetails extends StatelessWidget {
                     ),
                     const SizedBox(width: 30),
                     Container(
-                      height: 480,
-                      width: 500,
+                      height: 600.h,
+                      width: 550.w,
                       color: Colors.white,
                       padding: EdgeInsets.only(left: 20),
                       child: Column(
                         children: [
-                          const SizedBox(height: 50),
+                          SizedBox(height: screenHeight * 0.05),
                           Text(
                             'Medical History',
                             style: TextStyle(
                               fontFamily: 'OpenSansEB',
-                              fontSize: 25,
+                              fontSize: 25.sp,
                               color: Colors.black,
                             ),
                           ),
-                          const SizedBox(height: 30),
+                          SizedBox(height: screenHeight * 0.03),
                           Container(
-                            width: 430,
-                            height: 110,
+                            width: 480.h,
+                            height: 115.w,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black, width: 1),
@@ -377,7 +380,7 @@ class ViewDetails extends StatelessWidget {
                                   child: Text(
                                     'March 11, 2025',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 20.sp,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -388,13 +391,13 @@ class ViewDetails extends StatelessWidget {
                                   child: Text(
                                     'Follow up check up',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 20.sp,
                                       color: Colors.black,
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(right: 285),
+                                  padding: EdgeInsets.only(right: 270),
                                   child: TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -413,11 +416,11 @@ class ViewDetails extends StatelessWidget {
                                             ),
                                           ),
                                     ),
-                                    child: const Text(
+                                    child: Text(
                                       'View Record',
                                       style: TextStyle(
                                         fontFamily: 'OpenSansLight',
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 235, 49, 49),
                                       ),
@@ -427,10 +430,10 @@ class ViewDetails extends StatelessWidget {
                               ],
                             ),
                           ),
-                          const SizedBox(height: 30),
+                          SizedBox(height: screenHeight * 0.03),
                           Container(
-                            width: 430,
-                            height: 110,
+                            width: 480.h,
+                            height: 115.w,
                             decoration: BoxDecoration(
                               color: Colors.white,
                               border: Border.all(color: Colors.black, width: 1),
@@ -438,13 +441,13 @@ class ViewDetails extends StatelessWidget {
                             ),
                             child: Column(
                               children: [
-                                const SizedBox(height: 10),
+                                SizedBox(height: screenHeight * 0.02),
                                 Padding(
                                   padding: EdgeInsets.only(right: 225),
                                   child: Text(
                                     'March 11, 2025',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 20.sp,
                                       color: Colors.black,
                                       fontWeight: FontWeight.bold,
                                     ),
@@ -455,13 +458,13 @@ class ViewDetails extends StatelessWidget {
                                   child: Text(
                                     'Diagnosed with Gonorrhea',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 20.sp,
                                       color: Colors.black,
                                     ),
                                   ),
                                 ),
                                 Padding(
-                                  padding: EdgeInsets.only(right: 280),
+                                  padding: EdgeInsets.only(right: 270),
                                   child: TextButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -480,11 +483,11 @@ class ViewDetails extends StatelessWidget {
                                             ),
                                           ),
                                     ),
-                                    child: const Text(
+                                    child: Text(
                                       'View Record',
                                       style: TextStyle(
                                         fontFamily: 'OpenSansLight',
-                                        fontSize: 15,
+                                        fontSize: 15.sp,
                                         fontWeight: FontWeight.bold,
                                         color: Color.fromARGB(255, 235, 49, 49),
                                       ),
@@ -500,9 +503,8 @@ class ViewDetails extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 10),
-              Padding(
-                padding: EdgeInsets.only(right: 85),
+              SizedBox(height: screenHeight * 0.02),
+              Center(
                 child: TextButton(
                   onPressed: () {
                     Navigator.push(
@@ -515,11 +517,11 @@ class ViewDetails extends StatelessWidget {
                       TextStyle(decoration: TextDecoration.underline),
                     ),
                   ),
-                  child: const Text(
+                  child: Text(
                     'Go Back',
                     style: TextStyle(
                       fontFamily: 'OpenSansLight',
-                      fontSize: 20,
+                      fontSize: 20.sp,
                       fontWeight: FontWeight.bold,
                       color: Color.fromARGB(255, 0, 0, 0),
                     ),

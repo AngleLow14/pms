@@ -4,1324 +4,1354 @@ import 'package:pms/heat_map.dart';
 import 'package:pms/main.dart';
 import 'package:pms/patient.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Dashboard extends StatelessWidget {
   const Dashboard({super.key});
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: Row(
-                children: [
-                  Column(
-                    children: [
-                      Container(
-                        color: const Color.fromARGB(255, 255, 251, 251),
-                        height: MediaQuery.of(context).size.height,
-                        width: 300,
-                        child: Column(
-                          children: [
-                            const SizedBox(height: 20),
-                            Container(
-                              height: 150,
-                              width: 150,
-                              padding: EdgeInsets.all(8.0),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey,
-                              ),
-                              child: CircleAvatar(
-                                radius: 30,
-                                backgroundColor: Colors.transparent,
-                              ),
-                            ),
-                            const SizedBox(height: 30),
-                            Text(
-                              'San Pablo Social Hygiene Clinic',
-                              softWrap: true,
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                fontSize: 30,
-                                fontFamily: 'OpenSansEB',
-                                color: Color.fromARGB(255, 182, 8, 37),
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                            Padding(
-                              padding: EdgeInsets.only(left: 55),
-                              child: SizedBox(
-                                height: 35,
-                                width: 130,
-                                child: const Text(
-                                  'Dashboard',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontFamily: 'OpenSansLight',
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 252, 98, 98),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            SizedBox(
-                              height: 35,
-                              width: 150,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Patients(),
-                                    ),
-                                  );
-                                },
-                                child: const Text(
-                                  'Patients',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    fontFamily: 'OpenSansLight',
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 43, 43, 43),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 5),
-                            SizedBox(
-                              height: 35,
-                              width: 150,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => Appointment(),
-                                    ),
-                                  );
-                                },
-                                child: const Text(
-                                  'Appointment',
-                                  style: TextStyle(
-                                    fontFamily: 'OpenSansLight',
-                                    fontSize: 15,
-                                    fontWeight: FontWeight.bold,
-                                    color: Color.fromARGB(255, 43, 43, 43),
-                                  ),
-                                ),
-                              ),
-                            ),
-                            const SizedBox(height: 135),
-                            SizedBox(
-                              height: 35,
-                              width: 150,
-                              child: TextButton(
-                                onPressed: () {
-                                  Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => LoginPage(),
-                                    ),
-                                  );
-                                },
-                                child: const Text(
-                                  'Log Out',
-                                  style: TextStyle(
-                                    fontFamily: 'OpenSansLight',
-                                    fontWeight: FontWeight.bold,
-                                    fontSize: 15,
-                                    color: Color.fromARGB(255, 43, 43, 43),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    color: const Color.fromARGB(255, 255, 245, 245),
-                    child: Column(
+        child: Container(
+          color: Color.fromARGB(255, 255, 245, 245),
+          height: screenHeight * 1,
+          width: screenWidth * 1,
+          child: Column(
+            children: [
+              Expanded(
+                child: Row(
+                  children: [
+                    Column(
                       children: [
-                        Row(
-                          children: [
-                            Padding(
-                              padding: EdgeInsets.only(left: 45, top: 10),
-                              child: SizedBox(
-                                height: 50,
-                                width: 300,
+                        Container(
+                          color: const Color.fromARGB(255, 255, 251, 251),
+                          height: screenHeight * 1,
+                          width: screenWidth * 0.25,
+                          child: Column(
+                            children: [
+                              SizedBox(height: screenHeight * 0.05),
+                              Container(
+                                height: screenHeight * 0.2,
+                                width: screenWidth * 0.2,
+                                padding: EdgeInsets.all(8.0),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: Colors.grey,
+                                ),
+                                child: CircleAvatar(
+                                  radius: 30,
+                                  backgroundColor: Colors.transparent,
+                                ),
+                              ),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.03,
+                              ),
+                              Center(
                                 child: Text(
-                                  'Dashboard',
+                                  'San Pablo Social Hygiene Clinic',
+                                  softWrap: true,
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
+                                    fontSize: 30.sp,
                                     fontFamily: 'OpenSansEB',
-                                    fontSize: 30,
                                     color: Color.fromARGB(255, 182, 8, 37),
                                   ),
                                 ),
                               ),
-                            ),
-                            Padding(
-                              padding: EdgeInsets.only(left: 295, top: 10),
-                              child: SizedBox(
-                                height: 50,
-                                width: 300,
-                                child: TextField(
-                                  style: TextStyle(fontSize: 15),
-                                  decoration: InputDecoration(
-                                    filled: true,
-                                    fillColor: Colors.white,
-                                    border: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(50.0),
+                              SizedBox(
+                                height:
+                                    MediaQuery.of(context).size.height * 0.03,
+                              ),
+                              Center(
+                                child: SizedBox(
+                                  height: 35.h,
+                                  width: 150.w,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Dashboard(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      'Dashboard',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontFamily: 'OpenSansLight',
+                                        fontWeight: FontWeight.bold,
+                                        color: Color.fromARGB(255, 252, 98, 98),
+                                      ),
                                     ),
-                                    hintText: 'Search...',
                                   ),
                                 ),
                               ),
-                            ),
-                          ],
+                              SizedBox(height: screenHeight * 0.02),
+                              Center(
+                                child: SizedBox(
+                                  height: 35.h,
+                                  width: 150.w,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Patients(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      'Patients',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontFamily: 'OpenSansLight',
+                                        fontWeight: FontWeight.bold,
+                                        color: Color.fromARGB(255, 43, 43, 43),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: screenHeight * 0.02),
+                              Center(
+                                child: SizedBox(
+                                  height: 35.h,
+                                  width: 150.w,
+                                  child: TextButton(
+                                    onPressed: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder: (context) => Appointment(),
+                                        ),
+                                      );
+                                    },
+                                    child: Text(
+                                      'Appointments',
+                                      style: TextStyle(
+                                        fontSize: 15.sp,
+                                        fontFamily: 'OpenSansLight',
+                                        fontWeight: FontWeight.bold,
+                                        color: Color.fromARGB(255, 43, 43, 43),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: screenHeight * 0.25),
+                              SizedBox(
+                                height: 35.h,
+                                width: 150.w,
+                                child: TextButton(
+                                  onPressed: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => LoginPage(),
+                                      ),
+                                    );
+                                  },
+                                  child: Text(
+                                    'Log Out',
+                                    style: TextStyle(
+                                      fontFamily: 'OpenSansLight',
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 15.sp,
+                                      color: Color.fromARGB(255, 43, 43, 43),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                        const SizedBox(height: 15),
-                        Container(
-                          color: const Color.fromARGB(255, 255, 245, 245),
-                          child: SingleChildScrollView(
-                            child: Row(
+                      ],
+                    ),
+                    SizedBox(width: screenWidth * 0.03),
+                    SingleChildScrollView(
+                      child: Container(
+                        color: Color.fromARGB(255, 255, 245, 245),
+                        height: screenHeight,
+                        width: screenWidth * 0.7,
+                        child: Column(
+                          children: [
+                            SizedBox(
+                              height: screenHeight * 0.02,
+                              width: screenWidth * 0.03,
+                            ),
+                            Row(
                               children: [
-                                Column(
+                                SizedBox(
+                                  height: screenHeight * 0.15,
+                                  width: screenWidth * 0.15,
+                                  child: Text(
+                                    'Dashboard',
+                                    style: TextStyle(
+                                      fontFamily: 'OpenSansEB',
+                                      fontSize: 30.sp,
+                                      color: Color.fromARGB(255, 182, 8, 37),
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(
+                                  width: screenWidth * 0.3,
+                                  height: screenHeight * 0.15,
+                                ),
+                                SizedBox(
+                                  height: screenHeight * 0.15,
+                                  width: screenWidth * 0.2,
+                                  child: TextField(
+                                    style: TextStyle(fontSize: 15),
+                                    decoration: InputDecoration(
+                                      filled: true,
+                                      fillColor: Colors.white,
+                                      border: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(
+                                          50.0,
+                                        ),
+                                      ),
+                                      hintText: 'Search...',
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                            SizedBox(height: screenHeight * 0.01),
+                            SingleChildScrollView(
+                              child: Container(
+                                child: Row(
                                   children: [
+                                    Column(
+                                      children: [
+                                        Row(
+                                          children: [
+                                            Container(
+                                              height: 200.h,
+                                              width: 210.w,
+                                              color: Colors.white,
+                                              child: Column(
+                                                children: [
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Text(
+                                                    'STD Cases',
+                                                    textAlign: TextAlign.left,
+                                                    style: TextStyle(
+                                                      fontSize: 25.sp,
+                                                      fontFamily: 'OpenSansSB',
+                                                      color: Colors.black,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Text(
+                                                    '86',
+                                                    style: TextStyle(
+                                                      fontSize: 50.sp,
+                                                      fontFamily: 'OpenSansEB',
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            SizedBox(width: screenWidth * 0.01),
+                                            Container(
+                                              height: 200.h,
+                                              width: 210.w,
+                                              color: Colors.white,
+                                              child: Column(
+                                                children: [
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Text(
+                                                    'Sex',
+                                                    style: TextStyle(
+                                                      fontSize: 25.sp,
+                                                      fontFamily: 'OpenSansSB',
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black,
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: screenHeight * 0.03,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Male',
+                                                        style: TextStyle(
+                                                          fontSize: 15.sp,
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.07,
+                                                      ),
+                                                      Text(
+                                                        '50',
+                                                        style: TextStyle(
+                                                          fontSize: 15.sp,
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                    height: screenHeight * 0.03,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Female',
+                                                        style: TextStyle(
+                                                          fontSize: 15.sp,
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.06,
+                                                      ),
+                                                      Text(
+                                                        '36',
+                                                        style: TextStyle(
+                                                          fontSize: 15.sp,
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          color: Colors.black,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: screenHeight * 0.02),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              height: 380.h,
+                                              width: 430.w,
+                                              color: Colors.white,
+                                              child: GestureDetector(
+                                                onTap: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                      builder:
+                                                          (content) =>
+                                                              HeatMap(),
+                                                    ),
+                                                  );
+                                                },
+                                                child: Column(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Image.asset(
+                                                      'assets/map/spc.png',
+                                                      height: 300.h,
+                                                      width: 300.w,
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                    SizedBox(width: screenWidth * 0.02),
                                     Row(
                                       children: [
-                                        Container(
-                                          height: 170,
-                                          width: 200,
-                                          color: Colors.white,
-                                          child: Column(
-                                            children: [
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  right: 50,
-                                                ),
-                                                child: Text(
-                                                  'STD Cases',
-                                                  style: TextStyle(
-                                                    fontSize: 25,
-                                                    fontFamily: 'OpenSansSB',
-                                                    color: Colors.black,
-                                                    fontWeight: FontWeight.bold,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              const Text(
-                                                '86',
-                                                style: TextStyle(
-                                                  fontSize: 50,
-                                                  fontFamily: 'OpenSansEB',
-                                                  color: Colors.black,
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        const SizedBox(width: 15),
-                                        Container(
-                                          height: 170,
-                                          width: 200,
-                                          color: Colors.white,
-                                          child: Column(
-                                            children: [
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  right: 105,
-                                                ),
-                                                child: Text(
-                                                  'Sex',
-                                                  style: TextStyle(
-                                                    fontSize: 25,
-                                                    fontFamily: 'OpenSansSB',
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Row(
+                                        Column(
+                                          children: [
+                                            Container(
+                                              height: 300.h,
+                                              width: 200.w,
+                                              color: Colors.white,
+                                              child: Column(
                                                 children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      left: 30,
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Text(
+                                                    'Age Group',
+                                                    style: TextStyle(
+                                                      fontFamily: 'OpenSansSB',
+                                                      fontSize: 25.sp,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: Colors.black,
                                                     ),
+                                                  ),
+                                                  SizedBox(
+                                                    height: screenHeight * 0.01,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.03,
+                                                      ),
+                                                      Text(
+                                                        'Children',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.05,
+                                                      ),
+                                                      Text(
+                                                        '1',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.03,
+                                                      ),
+                                                      Text(
+                                                        'Youth',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.06,
+                                                      ),
+                                                      Text(
+                                                        '25',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.03,
+                                                      ),
+                                                      Text(
+                                                        'Adult',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.065,
+                                                      ),
+                                                      Text(
+                                                        '53',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.03,
+                                                      ),
+                                                      Text(
+                                                        'Senior Citizen',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        '7',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  SizedBox(
+                                                    height: screenHeight * 0.03,
+                                                  ),
+                                                  Center(
                                                     child: Text(
-                                                      'Male',
+                                                      'Children (0-14)',
                                                       style: TextStyle(
-                                                        fontSize: 15,
                                                         fontFamily:
                                                             'OpenSansLight',
-                                                        color: Colors.black,
+                                                        fontSize: 10.sp,
                                                         fontWeight:
                                                             FontWeight.bold,
+                                                        color: Colors.black,
                                                       ),
                                                     ),
                                                   ),
-                                                  const SizedBox(height: 15),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      left: 85,
-                                                    ),
+                                                  SizedBox(
+                                                    height:
+                                                        screenHeight * 0.005,
+                                                  ),
+                                                  Center(
                                                     child: Text(
-                                                      '50',
+                                                      'Youth (15-24)',
                                                       style: TextStyle(
-                                                        fontSize: 15,
                                                         fontFamily:
                                                             'OpenSansLight',
-                                                        color: Colors.black,
+                                                        fontSize: 10.sp,
                                                         fontWeight:
                                                             FontWeight.bold,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height:
+                                                        screenHeight * 0.005,
+                                                  ),
+                                                  Center(
+                                                    child: Text(
+                                                      'Adults (24-59)',
+                                                      style: TextStyle(
+                                                        fontFamily:
+                                                            'OpenSansLight',
+                                                        fontSize: 10.sp,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  SizedBox(
+                                                    height:
+                                                        screenHeight * 0.005,
+                                                  ),
+                                                  Center(
+                                                    child: Text(
+                                                      'Senior Citizens (60 above)',
+                                                      style: TextStyle(
+                                                        fontFamily:
+                                                            'OpenSansLight',
+                                                        fontSize: 10.sp,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.black,
                                                       ),
                                                     ),
                                                   ),
                                                 ],
                                               ),
-                                              const SizedBox(height: 15),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Female',
-                                                      style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  const SizedBox(height: 15),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      left: 70,
-                                                    ),
-                                                    child: Text(
-                                                      '36',
-                                                      style: TextStyle(
-                                                        fontSize: 15,
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(height: 15),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          height: 330,
-                                          width: 420,
-                                          color: Colors.white,
-                                          child: GestureDetector(
-                                            onTap: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder:
-                                                      (content) => HeatMap(),
-                                                ),
-                                              );
-                                            },
-                                            child: Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Image.asset(
-                                                  'assets/map/spc.png',
-                                                  height: 300,
-                                                  width: 300,
-                                                ),
-                                              ],
                                             ),
-                                          ),
+                                            SizedBox(
+                                              height: screenHeight * 0.03,
+                                            ),
+                                            Container(
+                                              height: 280.h,
+                                              width: 200.w,
+                                              color: Colors.white,
+                                              child: Column(
+                                                children: [
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Center(
+                                                    child: Text(
+                                                      'Civil Status',
+                                                      style: TextStyle(
+                                                        fontFamily:
+                                                            'OpenSansSB',
+                                                        fontSize: 25.sp,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                        color: Colors.black,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Single',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.075,
+                                                      ),
+                                                      Text(
+                                                        '56',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Married',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.06,
+                                                      ),
+                                                      Text(
+                                                        '10',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Widowed',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.065,
+                                                      ),
+                                                      Text(
+                                                        '5',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Separated',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.055,
+                                                      ),
+                                                      Text(
+                                                        '1',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Annulled',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.065,
+                                                      ),
+                                                      Text(
+                                                        '0',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Live-In',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.07,
+                                                      ),
+                                                      Text(
+                                                        '13',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.02,
+                                                      ),
+                                                      Text(
+                                                        'Others',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.075,
+                                                      ),
+                                                      Text(
+                                                        '1',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15.sp,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                      ],
-                                    ),
-                                  ],
-                                ),
-                                const SizedBox(width: 15),
-                                Row(
-                                  children: [
-                                    Column(
-                                      children: [
-                                        Container(
-                                          height: 250,
-                                          width: 220,
-                                          color: Colors.white,
-                                          child: Column(
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  top: 15,
-                                                  right: 50,
-                                                ),
-                                                child: Text(
-                                                  'Age Group',
-                                                  style: TextStyle(
-                                                    fontFamily: 'OpenSansSB',
-                                                    fontSize: 25,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              Row(
+                                        SizedBox(width: screenWidth * 0.01),
+                                        Column(
+                                          children: [
+                                            Container(
+                                              height: 600.h,
+                                              width: 190.w,
+                                              color: Colors.white,
+                                              child: Column(
                                                 children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Children',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
+                                                  SizedBox(
+                                                    height: screenHeight * 0.03,
+                                                  ),
+                                                  Text(
+                                                    'Cases Classification',
+                                                    style: TextStyle(
+                                                      fontFamily: 'OpenSansSB',
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 18.sp,
+                                                      color: Colors.black,
                                                     ),
                                                   ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 65,
-                                                    ),
-                                                    child: Text(
-                                                      '1',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
+
+                                                  SizedBox(
+                                                    height: screenHeight * 0.1,
                                                   ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Youth',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 75,
-                                                    ),
-                                                    child: Text(
-                                                      '25',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Adult',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 80,
-                                                    ),
-                                                    child: Text(
-                                                      '53',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Senior Citizen',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      '7',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 20,
-                                                ),
-                                                child: Text(
-                                                  'Children (0-14)',
-                                                  style: TextStyle(
-                                                    fontFamily: 'OpenSansLight',
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(height: 5),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 20,
-                                                ),
-                                                child: Text(
-                                                  'Youth (15-24)',
-                                                  style: TextStyle(
-                                                    fontFamily: 'OpenSansLight',
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(height: 5),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 20,
-                                                ),
-                                                child: Text(
-                                                  'Adults (24-59)',
-                                                  style: TextStyle(
-                                                    fontFamily: 'OpenSansLight',
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(height: 5),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 20,
-                                                ),
-                                                child: Text(
-                                                  'Senior Citizens (60 above)',
-                                                  style: TextStyle(
-                                                    fontFamily: 'OpenSansLight',
-                                                    fontSize: 10,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        const SizedBox(height: 15),
-                                        Container(
-                                          height: 250,
-                                          width: 220,
-                                          color: Colors.white,
-                                          child: Column(
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  top: 15,
-                                                  right: 50,
-                                                ),
-                                                child: Text(
-                                                  'Civil Status',
-                                                  style: TextStyle(
-                                                    fontFamily: 'OpenSansSB',
-                                                    fontSize: 25,
-                                                    fontWeight: FontWeight.bold,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Single',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 95,
-                                                    ),
-                                                    child: Text(
-                                                      '56',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Married',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 80,
-                                                    ),
-                                                    child: Text(
-                                                      '10',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Widowed',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 80,
-                                                    ),
-                                                    child: Text(
-                                                      '5',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Separated',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 75,
-                                                    ),
-                                                    child: Text(
-                                                      '1',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Annulled',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 85,
-                                                    ),
-                                                    child: Text(
-                                                      '0',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Live-In',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 95,
-                                                    ),
-                                                    child: Text(
-                                                      '13',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                              Row(
-                                                children: [
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 30,
-                                                    ),
-                                                    child: Text(
-                                                      'Others',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                  Padding(
-                                                    padding: EdgeInsets.only(
-                                                      top: 5,
-                                                      left: 100,
-                                                    ),
-                                                    child: Text(
-                                                      '1',
-                                                      style: TextStyle(
-                                                        fontFamily:
-                                                            'OpenSansLight',
-                                                        fontSize: 15,
-                                                        fontWeight:
-                                                            FontWeight.bold,
-                                                        color: Colors.black,
-                                                      ),
-                                                    ),
-                                                  ),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    const SizedBox(width: 15),
-                                    Column(
-                                      children: [
-                                        Container(
-                                          height: 520,
-                                          width: 220,
-                                          color: Colors.white,
-                                          child: Column(
-                                            children: [
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(),
-                                                child: Text(
-                                                  'Cases Classification',
-                                                  style: TextStyle(
-                                                    fontFamily: 'OpenSansSB',
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 20,
-                                                    color: Colors.black,
-                                                  ),
-                                                ),
-                                              ),
-                                              const SizedBox(height: 50),
-                                              Center(
-                                                child: SizedBox(
-                                                  height: 100,
-                                                  width: 100,
-                                                  child: PieChart(
-                                                    PieChartData(
-                                                      sectionsSpace: 1,
-                                                      centerSpaceRadius: 30,
-                                                      sections: [
-                                                        PieChartSectionData(
-                                                          color:
-                                                              const Color.fromARGB(
-                                                                255,
-                                                                94,
-                                                                204,
-                                                                98,
+                                                  Center(
+                                                    child: SizedBox(
+                                                      height: 80.h,
+                                                      width: 80.w,
+                                                      child: Expanded(
+                                                        child: PieChart(
+                                                          PieChartData(
+                                                            sectionsSpace: 1,
+                                                            centerSpaceRadius:
+                                                                20,
+                                                            sections: [
+                                                              PieChartSectionData(
+                                                                color:
+                                                                    Color.fromARGB(
+                                                                      255,
+                                                                      94,
+                                                                      204,
+                                                                      98,
+                                                                    ),
+                                                                value: 30,
+                                                                radius: 50,
                                                               ),
-                                                          value: 30,
-                                                          radius: 50,
-                                                        ),
-                                                        PieChartSectionData(
-                                                          color:
-                                                              const Color.fromARGB(
-                                                                255,
-                                                                228,
-                                                                55,
-                                                                43,
+                                                              PieChartSectionData(
+                                                                color:
+                                                                    Color.fromARGB(
+                                                                      255,
+                                                                      228,
+                                                                      55,
+                                                                      43,
+                                                                    ),
+                                                                value: 20,
+                                                                radius: 50,
                                                               ),
-                                                          value: 20,
-                                                          radius: 50,
-                                                        ),
-                                                        PieChartSectionData(
-                                                          color:
-                                                              const Color.fromARGB(
-                                                                255,
-                                                                224,
-                                                                64,
-                                                                117,
+                                                              PieChartSectionData(
+                                                                color:
+                                                                    Color.fromARGB(
+                                                                      255,
+                                                                      224,
+                                                                      64,
+                                                                      117,
+                                                                    ),
+                                                                value: 20,
+                                                                radius: 50,
                                                               ),
-                                                          value: 20,
-                                                          radius: 50,
-                                                        ),
-                                                        PieChartSectionData(
-                                                          color:
-                                                              const Color.fromARGB(
-                                                                255,
-                                                                153,
-                                                                153,
-                                                                153,
+                                                              PieChartSectionData(
+                                                                color:
+                                                                    Color.fromARGB(
+                                                                      255,
+                                                                      153,
+                                                                      153,
+                                                                      153,
+                                                                    ),
+                                                                value: 15,
+                                                                radius: 50,
                                                               ),
-                                                          value: 15,
-                                                          radius: 50,
+                                                              PieChartSectionData(
+                                                                color:
+                                                                    Colors
+                                                                        .orangeAccent,
+                                                                value: 15,
+                                                                radius: 50,
+                                                              ),
+                                                            ],
+                                                          ),
                                                         ),
-                                                        PieChartSectionData(
-                                                          color:
-                                                              Colors
-                                                                  .orangeAccent,
-                                                          value: 15,
-                                                          radius: 50,
-                                                        ),
-                                                      ],
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ),
-                                              const SizedBox(height: 80),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 50,
-                                                ),
-                                                child: Row(
-                                                  children: [
-                                                    Container(
-                                                      height: 15,
-                                                      width: 15,
-                                                      padding: EdgeInsets.all(
-                                                        8.0,
+                                                  SizedBox(
+                                                    height: screenHeight * 0.1,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color:
-                                                            const Color.fromARGB(
-                                                              255,
-                                                              240,
-                                                              75,
-                                                              63,
+                                                      Container(
+                                                        height: 15.h,
+                                                        width: 15.w,
+
+                                                        decoration:
+                                                            BoxDecoration(
+                                                              shape:
+                                                                  BoxShape
+                                                                      .circle,
+                                                              color:
+                                                                  Color.fromARGB(
+                                                                    255,
+                                                                    240,
+                                                                    75,
+                                                                    63,
+                                                                  ),
                                                             ),
+                                                        child: CircleAvatar(
+                                                          radius: 20,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                        ),
                                                       ),
-                                                      child: CircleAvatar(
-                                                        radius: 30,
-                                                        backgroundColor:
-                                                            Colors.transparent,
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
-                                                      ),
-                                                      child: Text(
+                                                      Text(
                                                         'STD/STI 1',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      child: Text(
+                                                      Text(
                                                         '5',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 50,
-                                                ),
-                                                child: Row(
-                                                  children: [
-                                                    Container(
-                                                      height: 15,
-                                                      width: 15,
-                                                      padding: EdgeInsets.all(
-                                                        8.0,
+                                                    ],
+                                                  ),
+
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color:
-                                                            const Color.fromARGB(
-                                                              255,
-                                                              255,
-                                                              183,
-                                                              50,
+                                                      Container(
+                                                        height: 15.h,
+                                                        width: 15.w,
+                                                        padding: EdgeInsets.all(
+                                                          8.0,
+                                                        ),
+                                                        decoration:
+                                                            BoxDecoration(
+                                                              shape:
+                                                                  BoxShape
+                                                                      .circle,
+                                                              color:
+                                                                  Color.fromARGB(
+                                                                    255,
+                                                                    255,
+                                                                    183,
+                                                                    50,
+                                                                  ),
                                                             ),
+                                                        child: CircleAvatar(
+                                                          radius: 30,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                        ),
                                                       ),
-                                                      child: CircleAvatar(
-                                                        radius: 30,
-                                                        backgroundColor:
-                                                            Colors.transparent,
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
-                                                      ),
-                                                      child: Text(
+                                                      Text(
                                                         'STD/STI 1',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      child: Text(
+                                                      Text(
                                                         '10',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 50,
-                                                ),
-                                                child: Row(
-                                                  children: [
-                                                    Container(
-                                                      height: 15,
-                                                      width: 15,
-                                                      padding: EdgeInsets.all(
-                                                        8.0,
+                                                    ],
+                                                  ),
+
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color:
-                                                            const Color.fromARGB(
-                                                              255,
-                                                              153,
-                                                              153,
-                                                              153,
+                                                      Container(
+                                                        height: 15.h,
+                                                        width: 15.w,
+
+                                                        decoration:
+                                                            BoxDecoration(
+                                                              shape:
+                                                                  BoxShape
+                                                                      .circle,
+                                                              color:
+                                                                  Color.fromARGB(
+                                                                    255,
+                                                                    153,
+                                                                    153,
+                                                                    153,
+                                                                  ),
                                                             ),
+                                                        child: CircleAvatar(
+                                                          radius: 30,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                        ),
                                                       ),
-                                                      child: CircleAvatar(
-                                                        radius: 30,
-                                                        backgroundColor:
-                                                            Colors.transparent,
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
-                                                      ),
-                                                      child: Text(
+                                                      Text(
                                                         'STD/STI 1',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
+
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      child: Text(
+                                                      Text(
                                                         '22',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 50,
-                                                ),
-                                                child: Row(
-                                                  children: [
-                                                    Container(
-                                                      height: 15,
-                                                      width: 15,
-                                                      padding: EdgeInsets.all(
-                                                        8.0,
+                                                    ],
+                                                  ),
+
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color:
-                                                            const Color.fromARGB(
-                                                              255,
-                                                              94,
-                                                              204,
-                                                              98,
+                                                      Container(
+                                                        height: 15.h,
+                                                        width: 15.w,
+
+                                                        decoration:
+                                                            BoxDecoration(
+                                                              shape:
+                                                                  BoxShape
+                                                                      .circle,
+                                                              color:
+                                                                  Color.fromARGB(
+                                                                    255,
+                                                                    94,
+                                                                    204,
+                                                                    98,
+                                                                  ),
                                                             ),
+                                                        child: CircleAvatar(
+                                                          radius: 30,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                        ),
                                                       ),
-                                                      child: CircleAvatar(
-                                                        radius: 30,
-                                                        backgroundColor:
-                                                            Colors.transparent,
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
-                                                      ),
-                                                      child: Text(
+                                                      Text(
                                                         'STD/STI 1',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
+
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      child: Text(
+                                                      Text(
                                                         '45',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
-                                              ),
-                                              const SizedBox(height: 15),
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                  left: 50,
-                                                ),
-                                                child: Row(
-                                                  children: [
-                                                    Container(
-                                                      height: 15,
-                                                      width: 15,
-                                                      padding: EdgeInsets.all(
-                                                        8.0,
+                                                    ],
+                                                  ),
+
+                                                  SizedBox(
+                                                    height: screenHeight * 0.02,
+                                                  ),
+                                                  Row(
+                                                    children: [
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      decoration: BoxDecoration(
-                                                        shape: BoxShape.circle,
-                                                        color:
-                                                            const Color.fromARGB(
-                                                              255,
-                                                              224,
-                                                              64,
-                                                              117,
+                                                      Container(
+                                                        height: 15.h,
+                                                        width: 15.w,
+
+                                                        decoration:
+                                                            BoxDecoration(
+                                                              shape:
+                                                                  BoxShape
+                                                                      .circle,
+                                                              color:
+                                                                  Color.fromARGB(
+                                                                    255,
+                                                                    224,
+                                                                    64,
+                                                                    117,
+                                                                  ),
                                                             ),
+                                                        child: CircleAvatar(
+                                                          radius: 30,
+                                                          backgroundColor:
+                                                              Colors
+                                                                  .transparent,
+                                                        ),
                                                       ),
-                                                      child: CircleAvatar(
-                                                        radius: 30,
-                                                        backgroundColor:
-                                                            Colors.transparent,
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
-                                                      ),
-                                                      child: Text(
+                                                      Text(
                                                         'STD/STI 1',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                    Padding(
-                                                      padding: EdgeInsets.only(
-                                                        left: 20,
+
+                                                      SizedBox(
+                                                        width:
+                                                            screenWidth * 0.01,
                                                       ),
-                                                      child: Text(
+                                                      Text(
                                                         '14',
                                                         style: TextStyle(
                                                           fontFamily:
                                                               'OpenSansLight',
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          fontSize: 15,
+                                                          fontSize: 15.sp,
                                                           color: Colors.black,
                                                         ),
                                                       ),
-                                                    ),
-                                                  ],
-                                                ),
+                                                    ],
+                                                  ),
+                                                ],
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                          ],
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
