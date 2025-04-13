@@ -11,6 +11,83 @@ class Appointment extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
 
+    Widget _buildHeaderCell(String text) {
+      return Container(
+        height: 50.h,
+        alignment: Alignment.center,
+        color: const Color.fromARGB(255, 241, 241, 241),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 15.sp,
+            fontFamily: 'OpenSansEB',
+            color: Colors.black,
+          ),
+        ),
+      );
+    }
+
+    Widget _buildDataCell(String text) {
+      return Container(
+        alignment: Alignment.center,
+        color: Colors.white,
+        height: 50.h,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontFamily: 'OpenSansLight',
+            fontWeight: FontWeight.bold,
+            fontSize: 15.sp,
+            color: Colors.black,
+          ),
+        ),
+      );
+    }
+
+    TableRow _buildHeaderRow() {
+      return TableRow(
+        children: [
+          _buildHeaderCell('Patient ID'),
+          _buildHeaderCell('Patient Name'),
+          _buildHeaderCell('Appointment'),
+          _buildHeaderCell('Date'),
+          _buildHeaderCell('Action'),
+        ],
+      );
+    }
+
+    TableRow _buildDataRow() {
+      return TableRow(
+        children: [
+          _buildDataCell('25-0023'),
+          _buildDataCell('Gene Jerrylene Arnigo Alvarez'),
+          _buildDataCell('New Patient'),
+          _buildDataCell('11-03-2024'),
+          Container(
+            alignment: Alignment.center,
+            color: Colors.white,
+            height: 50.h,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Icon(
+                  Icons.check,
+                  size: 24,
+                  color: Color.fromARGB(255, 92, 230, 97),
+                ),
+                SizedBox(width: 20),
+                Icon(
+                  Icons.close,
+                  size: 24,
+                  color: Color.fromARGB(255, 226, 78, 78),
+                ),
+              ],
+            ),
+          ),
+        ],
+      );
+    }
+
     return Scaffold(
       body: SafeArea(
         child: Container(
@@ -184,25 +261,20 @@ class Appointment extends StatelessWidget {
                             children: [
                               SizedBox(height: screenHeight * 0.02),
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  SizedBox(
-                                    height: screenHeight * 0.15,
-                                    width: screenWidth * 0.25,
-                                    child: Text(
-                                      'Appointment',
-                                      style: TextStyle(
-                                        fontFamily: 'OpenSansEB',
-                                        fontSize: 30.sp,
-                                        color: Color.fromARGB(255, 182, 8, 37),
-                                      ),
+                                  Text(
+                                    'Appointment',
+                                    style: TextStyle(
+                                      fontFamily: 'OpenSansEB',
+                                      fontSize: 30.sp,
+                                      color: Color.fromARGB(255, 182, 8, 37),
                                     ),
                                   ),
+
                                   SizedBox(
-                                    width: screenWidth * 0.2,
-                                    height: screenHeight * 0.15,
-                                  ),
-                                  SizedBox(
-                                    height: screenHeight * 0.15,
+                                    height: screenHeight * 0.06,
                                     width: screenWidth * 0.2,
                                     child: TextField(
                                       style: TextStyle(fontSize: 15),
@@ -211,7 +283,7 @@ class Appointment extends StatelessWidget {
                                         fillColor: Colors.white,
                                         border: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(
-                                            50.0,
+                                            10.0,
                                           ),
                                         ),
                                         hintText: 'Search...',
@@ -220,887 +292,44 @@ class Appointment extends StatelessWidget {
                                   ),
                                 ],
                               ),
+                              SizedBox(height: screenHeight * 0.05),
                               Padding(
                                 padding: EdgeInsets.only(),
                                 child: SizedBox(
                                   width: screenWidth,
-                                  height: screenHeight * 0.6,
-                                  child: Table(
-                                    border: TableBorder.all(
-                                      color: Colors.black,
+                                  height: screenHeight * 0.6 + 200.h,
+                                  child: SingleChildScrollView(
+                                    scrollDirection: Axis.horizontal,
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.vertical,
+                                      child: Table(
+                                        border: TableBorder.all(
+                                          color: Colors.black,
+                                        ),
+                                        columnWidths: {
+                                          0: FixedColumnWidth(
+                                            screenWidth * 0.1,
+                                          ),
+                                          1: FixedColumnWidth(
+                                            screenWidth * 0.2,
+                                          ),
+                                          2: FixedColumnWidth(
+                                            screenWidth * 0.15,
+                                          ),
+                                          3: FixedColumnWidth(
+                                            screenWidth * 0.15,
+                                          ),
+                                          4: FixedColumnWidth(
+                                            screenWidth * 0.1,
+                                          ),
+                                        },
+                                        children: [
+                                          _buildHeaderRow(),
+                                          _buildDataRow(),
+                                          _buildDataRow(), // Add more rows as needed
+                                        ],
+                                      ),
                                     ),
-                                    columnWidths: {
-                                      0: FixedColumnWidth(100.0),
-                                      1: FixedColumnWidth(200.0),
-                                      2: FixedColumnWidth(100.0),
-                                      3: FixedColumnWidth(100.0),
-                                      4: FixedColumnWidth(100.0),
-                                    },
-                                    children: [
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            height: 35,
-                                            alignment: Alignment.center,
-                                            color: const Color.fromARGB(
-                                              255,
-                                              241,
-                                              241,
-                                              241,
-                                            ),
-                                            child: Text(
-                                              'Patient ID',
-                                              style: TextStyle(
-                                                fontSize: 15,
-                                                fontFamily: 'OpenSansEB',
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            height: 35,
-                                            alignment: Alignment.center,
-                                            color: const Color.fromARGB(
-                                              255,
-                                              241,
-                                              241,
-                                              241,
-                                            ),
-                                            child: Text(
-                                              'Patient Name',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansEB',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            height: 35,
-                                            alignment: Alignment.center,
-                                            color: const Color.fromARGB(
-                                              255,
-                                              241,
-                                              241,
-                                              241,
-                                            ),
-                                            child: Text(
-                                              'Appointment',
-                                              style: TextStyle(
-                                                fontSize: 15,
-                                                fontFamily: 'OpenSansEB',
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            height: 35,
-                                            alignment: Alignment.center,
-                                            color: const Color.fromARGB(
-                                              255,
-                                              241,
-                                              241,
-                                              241,
-                                            ),
-                                            child: Text(
-                                              'Date',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansEB',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            height: 35,
-                                            color: const Color.fromARGB(
-                                              255,
-                                              241,
-                                              241,
-                                              241,
-                                            ),
-                                            alignment: Alignment.center,
-                                            child: Text(
-                                              'Action',
-                                              style: TextStyle(
-                                                fontSize: 15,
-                                                fontFamily: 'OpenSansEB',
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'New Patient',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'New Patient',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Follow Up',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'New Patient',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'New Patient',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Follow Up',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'New Patient',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      TableRow(
-                                        children: [
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '25-0023',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Gene Jerrylene Arnigo Alvarez',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              'Follow Up',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                fontWeight: FontWeight.bold,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            height: 35,
-                                            child: Text(
-                                              '11-03-2024',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontWeight: FontWeight.bold,
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                          Container(
-                                            alignment: Alignment.center,
-                                            color: Colors.white,
-                                            child: Row(
-                                              children: [
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.check,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    92,
-                                                    230,
-                                                    97,
-                                                  ),
-                                                ),
-                                                const SizedBox(
-                                                  width: 30,
-                                                  height: 10,
-                                                ),
-                                                Icon(
-                                                  Icons.close,
-                                                  size: 30.0,
-                                                  color: const Color.fromARGB(
-                                                    255,
-                                                    226,
-                                                    78,
-                                                    78,
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ],
                                   ),
                                 ),
                               ),

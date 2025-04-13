@@ -6,6 +6,43 @@ import 'package:pms/dashboard.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Patients extends StatelessWidget {
+  Widget _buildHeaderCell(String text) {
+    return Center(
+      child: Container(
+        height: 50.h,
+        alignment: Alignment.center,
+        color: const Color.fromARGB(255, 241, 241, 241),
+        child: Text(
+          text,
+          style: TextStyle(
+            fontSize: 15.sp,
+            fontFamily: 'OpenSansEB',
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildDataCell(String text) {
+    return Center(
+      child: Container(
+        alignment: Alignment.center,
+        color: Colors.white,
+        height: 55.h,
+        child: Text(
+          text,
+          style: TextStyle(
+            fontFamily: 'OpenSansLight',
+            fontWeight: FontWeight.bold,
+            fontSize: 15.sp,
+            color: Colors.black,
+          ),
+        ),
+      ),
+    );
+  }
+
   const Patients({super.key});
   @override
   Widget build(BuildContext context) {
@@ -175,6 +212,7 @@ class Patients extends StatelessWidget {
                     ),
                     SizedBox(width: screenWidth * 0.03),
                     Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Container(
                           color: const Color.fromARGB(255, 255, 245, 245),
@@ -184,25 +222,20 @@ class Patients extends StatelessWidget {
                             children: [
                               SizedBox(height: screenHeight * 0.02),
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  SizedBox(
-                                    height: screenHeight * 0.15,
-                                    width: screenWidth * 0.25,
-                                    child: Text(
-                                      'Patients',
-                                      style: TextStyle(
-                                        fontFamily: 'OpenSansEB',
-                                        fontSize: 30.sp,
-                                        color: Color.fromARGB(255, 182, 8, 37),
-                                      ),
+                                  Text(
+                                    'Patients',
+                                    style: TextStyle(
+                                      fontFamily: 'OpenSansEB',
+                                      fontSize: 30.sp,
+                                      color: Color.fromARGB(255, 182, 8, 37),
                                     ),
                                   ),
+
                                   SizedBox(
-                                    width: screenWidth * 0.2,
-                                    height: screenHeight * 0.15,
-                                  ),
-                                  SizedBox(
-                                    height: screenHeight * 0.15,
+                                    height: screenHeight * 0.06,
                                     width: screenWidth * 0.2,
                                     child: TextField(
                                       style: TextStyle(fontSize: 15),
@@ -211,7 +244,7 @@ class Patients extends StatelessWidget {
                                         fillColor: Colors.white,
                                         border: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(
-                                            50.0,
+                                            10.0,
                                           ),
                                         ),
                                         hintText: 'Search...',
@@ -221,684 +254,117 @@ class Patients extends StatelessWidget {
                                 ],
                               ),
                               SizedBox(height: screenHeight * 0.05),
-                              SizedBox(
-                                width: screenWidth,
-                                height: screenHeight * 0.06,
-                                child: Table(
-                                  border: TableBorder.all(color: Colors.black),
-                                  columnWidths: {
-                                    0: FixedColumnWidth(80.0),
-                                    1: FixedColumnWidth(200.0),
-                                    2: FixedColumnWidth(30.0),
-                                    3: FixedColumnWidth(75.0),
-                                    4: FixedColumnWidth(120.0),
-                                    5: FixedColumnWidth(100.0),
-                                  },
-                                  children: [
-                                    TableRow(
-                                      children: [
-                                        Container(
-                                          height: 35,
-                                          alignment: Alignment.center,
-                                          color: const Color.fromARGB(
-                                            255,
-                                            241,
-                                            241,
-                                            241,
+                              Center(
+                                child: SizedBox(
+                                  width: screenWidth,
+                                  height:
+                                      screenHeight * 0.06 +
+                                      450.h, // adjust height if needed for scroll area
+                                  child: SizedBox(
+                                    height:
+                                        screenHeight *
+                                        0.6, // <-- Give a height constraint
+                                    child: SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: SingleChildScrollView(
+                                        scrollDirection: Axis.vertical,
+                                        child: Table(
+                                          border: TableBorder.all(
+                                            color: Colors.black,
                                           ),
-                                          child: Text(
-                                            'Patient ID',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'OpenSansEB',
-                                              color: Colors.black,
+                                          columnWidths: {
+                                            0: FixedColumnWidth(
+                                              screenWidth * 0.08,
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          height: 35,
-                                          alignment: Alignment.center,
-                                          color: const Color.fromARGB(
-                                            255,
-                                            241,
-                                            241,
-                                            241,
-                                          ),
-                                          child: Text(
-                                            'Patient Name',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansEB',
-                                              fontSize: 15,
-                                              color: Colors.black,
+                                            1: FixedColumnWidth(
+                                              screenWidth * 0.2,
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          height: 35,
-                                          alignment: Alignment.center,
-                                          color: const Color.fromARGB(
-                                            255,
-                                            241,
-                                            241,
-                                            241,
-                                          ),
-                                          child: Text(
-                                            'Age',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'OpenSansEB',
-                                              color: Colors.black,
+                                            2: FixedColumnWidth(
+                                              screenWidth * 0.05,
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          height: 35,
-                                          alignment: Alignment.center,
-                                          color: const Color.fromARGB(
-                                            255,
-                                            241,
-                                            241,
-                                            241,
-                                          ),
-                                          child: Text(
-                                            'Status',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansEB',
-                                              fontSize: 15,
-                                              color: Colors.black,
+                                            3: FixedColumnWidth(
+                                              screenWidth * 0.08,
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          height: 35,
-                                          alignment: Alignment.center,
-                                          color: const Color.fromARGB(
-                                            255,
-                                            241,
-                                            241,
-                                            241,
-                                          ),
-                                          child: Text(
-                                            'Recent Record',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansEB',
-                                              fontSize: 15,
-                                              color: Colors.black,
+                                            4: FixedColumnWidth(
+                                              screenWidth * 0.14,
                                             ),
-                                          ),
-                                        ),
-                                        Container(
-                                          height: 35,
-                                          color: const Color.fromARGB(
-                                            255,
-                                            241,
-                                            241,
-                                            241,
-                                          ),
-                                          alignment: Alignment.center,
-                                          child: Text(
-                                            'Action',
-                                            style: TextStyle(
-                                              fontSize: 15,
-                                              fontFamily: 'OpenSansEB',
-                                              color: Colors.black,
+                                            5: FixedColumnWidth(
+                                              screenWidth * 0.12,
                                             ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-                                    TableRow(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '25-0023',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Gene Jerrylene Arnigo Alvarez',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '29',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Active',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'February 28, 2024',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder:
-                                                      (context) =>
-                                                          ViewDetails(),
+                                          },
+                                          children: [
+                                            TableRow(
+                                              children: [
+                                                _buildHeaderCell('Patient ID'),
+                                                _buildHeaderCell(
+                                                  'Patient Name',
                                                 ),
-                                              );
-                                            },
-                                            style: ButtonStyle(
-                                              textStyle:
-                                                  MaterialStateProperty.all<
-                                                    TextStyle
-                                                  >(
-                                                    TextStyle(
-                                                      decoration:
-                                                          TextDecoration
-                                                              .underline,
+                                                _buildHeaderCell('Age'),
+                                                _buildHeaderCell('Status'),
+                                                _buildHeaderCell(
+                                                  'Recent Record',
+                                                ),
+                                                _buildHeaderCell('Action'),
+                                              ],
+                                            ),
+                                            ...List.generate(10, (index) {
+                                              return TableRow(
+                                                children: [
+                                                  _buildDataCell('25-0023'),
+                                                  _buildDataCell(
+                                                    'Gene Jerrylene Arnigo Alvarez',
+                                                  ),
+                                                  _buildDataCell('29'),
+                                                  _buildDataCell('Active'),
+                                                  _buildDataCell(
+                                                    'February 28, 2024',
+                                                  ),
+                                                  Container(
+                                                    alignment: Alignment.center,
+                                                    color: Colors.white,
+                                                    height: 55.h,
+                                                    child: TextButton(
+                                                      onPressed: () {
+                                                        Navigator.push(
+                                                          context,
+                                                          MaterialPageRoute(
+                                                            builder:
+                                                                (context) =>
+                                                                    ViewDetails(),
+                                                          ),
+                                                        );
+                                                      },
+                                                      style: ButtonStyle(
+                                                        textStyle:
+                                                            MaterialStateProperty.all<
+                                                              TextStyle
+                                                            >(
+                                                              const TextStyle(
+                                                                decoration:
+                                                                    TextDecoration
+                                                                        .underline,
+                                                              ),
+                                                            ),
+                                                      ),
+                                                      child: Text(
+                                                        'View Details',
+                                                        style: TextStyle(
+                                                          fontFamily:
+                                                              'OpenSansLight',
+                                                          fontSize: 15,
+                                                          color: Colors.black,
+                                                        ),
+                                                      ),
                                                     ),
                                                   ),
-                                            ),
-                                            child: const Text(
-                                              'View Details',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    TableRow(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '25-0023',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Gene Jerrylene Arnigo Alvarez',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '29',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Active',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'February 28, 2024',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder:
-                                                      (context) =>
-                                                          ViewDetails(),
-                                                ),
+                                                ],
                                               );
-                                            },
-                                            style: ButtonStyle(
-                                              textStyle:
-                                                  MaterialStateProperty.all<
-                                                    TextStyle
-                                                  >(
-                                                    TextStyle(
-                                                      decoration:
-                                                          TextDecoration
-                                                              .underline,
-                                                    ),
-                                                  ),
-                                            ),
-                                            child: const Text(
-                                              'View Details',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
+                                            }),
+                                          ],
                                         ),
-                                      ],
+                                      ),
                                     ),
-                                    TableRow(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '25-0023',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Gene Jerrylene Arnigo Alvarez',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '29',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Recovered',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'February 28, 2024',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder:
-                                                      (context) =>
-                                                          ViewDetails(),
-                                                ),
-                                              );
-                                            },
-                                            style: ButtonStyle(
-                                              textStyle:
-                                                  MaterialStateProperty.all<
-                                                    TextStyle
-                                                  >(
-                                                    TextStyle(
-                                                      decoration:
-                                                          TextDecoration
-                                                              .underline,
-                                                    ),
-                                                  ),
-                                            ),
-                                            child: const Text(
-                                              'View Details',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    TableRow(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '25-0023',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Gene Jerrylene Arnigo Alvarez',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '29',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Active',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'February 28, 2024',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder:
-                                                      (context) =>
-                                                          ViewDetails(),
-                                                ),
-                                              );
-                                            },
-                                            style: ButtonStyle(
-                                              textStyle:
-                                                  MaterialStateProperty.all<
-                                                    TextStyle
-                                                  >(
-                                                    TextStyle(
-                                                      decoration:
-                                                          TextDecoration
-                                                              .underline,
-                                                    ),
-                                                  ),
-                                            ),
-                                            child: const Text(
-                                              'View Details',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    TableRow(
-                                      children: [
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '25-0023',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Gene Jerrylene Arnigo Alvarez',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            '29',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontSize: 15,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'Active',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          height: 35,
-                                          child: Text(
-                                            'February 28, 2024',
-                                            style: TextStyle(
-                                              fontFamily: 'OpenSansLight',
-                                              fontWeight: FontWeight.bold,
-                                              fontSize: 15,
-                                              color: Colors.black,
-                                            ),
-                                          ),
-                                        ),
-                                        Container(
-                                          alignment: Alignment.center,
-                                          color: Colors.white,
-                                          child: TextButton(
-                                            onPressed: () {
-                                              Navigator.push(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder:
-                                                      (context) =>
-                                                          ViewDetails(),
-                                                ),
-                                              );
-                                            },
-                                            style: ButtonStyle(
-                                              textStyle:
-                                                  MaterialStateProperty.all<
-                                                    TextStyle
-                                                  >(
-                                                    TextStyle(
-                                                      decoration:
-                                                          TextDecoration
-                                                              .underline,
-                                                    ),
-                                                  ),
-                                            ),
-                                            child: const Text(
-                                              'View Details',
-                                              style: TextStyle(
-                                                fontFamily: 'OpenSansLight',
-                                                fontSize: 15,
-                                                color: Colors.black,
-                                              ),
-                                            ),
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                  ),
                                 ),
                               ),
                             ],

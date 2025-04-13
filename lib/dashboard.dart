@@ -185,25 +185,19 @@ class Dashboard extends StatelessWidget {
                               width: screenWidth * 0.03,
                             ),
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                SizedBox(
-                                  height: screenHeight * 0.15,
-                                  width: screenWidth * 0.15,
-                                  child: Text(
-                                    'Dashboard',
-                                    style: TextStyle(
-                                      fontFamily: 'OpenSansEB',
-                                      fontSize: 30.sp,
-                                      color: Color.fromARGB(255, 182, 8, 37),
-                                    ),
+                                Text(
+                                  'Dashboard',
+                                  style: TextStyle(
+                                    fontFamily: 'OpenSansEB',
+                                    fontSize: 30.sp,
+                                    color: Color.fromARGB(255, 182, 8, 37),
                                   ),
                                 ),
+
                                 SizedBox(
-                                  width: screenWidth * 0.3,
-                                  height: screenHeight * 0.15,
-                                ),
-                                SizedBox(
-                                  height: screenHeight * 0.15,
+                                  height: screenHeight * 0.06,
                                   width: screenWidth * 0.2,
                                   child: TextField(
                                     style: TextStyle(fontSize: 15),
@@ -212,7 +206,7 @@ class Dashboard extends StatelessWidget {
                                       fillColor: Colors.white,
                                       border: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(
-                                          50.0,
+                                          10.0,
                                         ),
                                       ),
                                       hintText: 'Search...',
@@ -221,7 +215,7 @@ class Dashboard extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            SizedBox(height: screenHeight * 0.01),
+                            SizedBox(height: screenHeight * 0.05),
                             SingleChildScrollView(
                               child: Container(
                                 child: Row(
@@ -387,10 +381,14 @@ class Dashboard extends StatelessWidget {
                                                   mainAxisSize:
                                                       MainAxisSize.min,
                                                   children: [
+                                                    SizedBox(
+                                                      height:
+                                                          screenHeight * 0.005,
+                                                    ),
                                                     Image.asset(
-                                                      'assets/map/spc.png',
-                                                      height: 300.h,
-                                                      width: 300.w,
+                                                      'assets/map/placement.png',
+                                                      height: 370.h,
+                                                      width: 410.w,
                                                     ),
                                                   ],
                                                 ),
@@ -1004,7 +1002,7 @@ class Dashboard extends StatelessWidget {
                                                     children: [
                                                       SizedBox(
                                                         width:
-                                                            screenWidth * 0.01,
+                                                            screenWidth * 0.02,
                                                       ),
                                                       Container(
                                                         height: 15.h,
@@ -1070,7 +1068,7 @@ class Dashboard extends StatelessWidget {
                                                     children: [
                                                       SizedBox(
                                                         width:
-                                                            screenWidth * 0.01,
+                                                            screenWidth * 0.02,
                                                       ),
                                                       Container(
                                                         height: 15.h,
@@ -1139,7 +1137,7 @@ class Dashboard extends StatelessWidget {
                                                     children: [
                                                       SizedBox(
                                                         width:
-                                                            screenWidth * 0.01,
+                                                            screenWidth * 0.02,
                                                       ),
                                                       Container(
                                                         height: 15.h,
@@ -1206,7 +1204,7 @@ class Dashboard extends StatelessWidget {
                                                     children: [
                                                       SizedBox(
                                                         width:
-                                                            screenWidth * 0.01,
+                                                            screenWidth * 0.02,
                                                       ),
                                                       Container(
                                                         height: 15.h,
@@ -1273,7 +1271,7 @@ class Dashboard extends StatelessWidget {
                                                     children: [
                                                       SizedBox(
                                                         width:
-                                                            screenWidth * 0.01,
+                                                            screenWidth * 0.02,
                                                       ),
                                                       Container(
                                                         height: 15.h,

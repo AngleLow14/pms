@@ -4,6 +4,7 @@ import 'package:pms/appointment.dart';
 import 'package:pms/patient.dart';
 import 'package:pms/main.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:pms/heat_map/map.dart';
 
 class HeatMap extends StatelessWidget {
   const HeatMap({super.key});
@@ -187,34 +188,59 @@ class HeatMap extends StatelessWidget {
                                 width: screenWidth * 0.03,
                               ),
                               Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
-                                  SizedBox(
-                                    width: screenWidth * 0.15,
-                                    height: screenHeight * 0.1,
-                                    child: Text(
-                                      'Dashboard',
-                                      style: TextStyle(
-                                        fontFamily: 'OpenSansEB',
-                                        fontSize: 30.sp,
-                                        color: Color.fromARGB(255, 182, 8, 37),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        'Dashboard ',
+                                        style: TextStyle(
+                                          fontFamily: 'OpenSansEB',
+                                          fontSize: 30.sp,
+                                          color: Color.fromARGB(
+                                            255,
+                                            182,
+                                            8,
+                                            37,
+                                          ),
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    width: screenWidth * 0.2,
-                                    height: screenHeight * 0.1,
-                                    child: Text(
-                                      '>  Heat Map',
-                                      style: TextStyle(
-                                        fontFamily: 'OpenSansEB',
-                                        fontSize: 30.sp,
-                                        color: Color.fromARGB(255, 182, 8, 37),
+
+                                      Text(
+                                        ' > ',
+                                        style: TextStyle(
+                                          fontFamily: 'OpenSansEB',
+                                          fontSize: 30.sp,
+                                          color: Color.fromARGB(
+                                            255,
+                                            182,
+                                            8,
+                                            37,
+                                          ),
+                                        ),
                                       ),
-                                    ),
+
+                                      Text(
+                                        ' Heat Map',
+                                        style: TextStyle(
+                                          fontFamily: 'OpenSansEB',
+                                          fontSize: 30.sp,
+                                          color: Color.fromARGB(
+                                            255,
+                                            182,
+                                            8,
+                                            37,
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  SizedBox(width: screenWidth * 0.1),
+
                                   SizedBox(
-                                    height: screenHeight * 0.1,
+                                    height: screenHeight * 0.06,
                                     width: screenWidth * 0.2,
                                     child: TextField(
                                       style: TextStyle(fontSize: 15),
@@ -223,7 +249,7 @@ class HeatMap extends StatelessWidget {
                                         fillColor: Colors.white,
                                         border: OutlineInputBorder(
                                           borderRadius: BorderRadius.circular(
-                                            50.0,
+                                            10.0,
                                           ),
                                         ),
                                         hintText: 'Search...',
@@ -232,39 +258,20 @@ class HeatMap extends StatelessWidget {
                                   ),
                                 ],
                               ),
-                              SizedBox(height: screenHeight * 0.02),
+                              SizedBox(height: screenHeight * 0.05),
                               Row(
                                 children: [
                                   Row(
                                     children: [
                                       Container(
                                         height: screenHeight * 0.7,
-                                        width: screenWidth * 0.4,
+                                        width: screenWidth * 0.48,
                                         color: Colors.white,
-                                        child: GestureDetector(
-                                          onTap: () {
-                                            Navigator.push(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) => HeatMap(),
-                                              ),
-                                            );
-                                          },
-                                          child: Column(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Image.asset(
-                                                'assets/map/spc.png',
-                                                height: screenHeight * 0.7,
-                                                width: screenHeight * 0.7,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
+                                        child: MapZoomExample(),
                                       ),
                                     ],
                                   ),
-                                  SizedBox(width: screenWidth * 0.03),
+                                  SizedBox(width: screenWidth * 0.01),
                                   Container(
                                     color: Colors.white,
                                     width: 250.w,
